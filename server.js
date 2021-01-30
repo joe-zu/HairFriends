@@ -38,10 +38,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//These app.gets will be in our controller files
-app.get("/", function (req, res) {
-  res.render("index");
-});
+const routes = require("./controllers/application_controller.js");
+
+app.use(routes);
 
 //This will be in our bin folder
 // Start our server so that it can begin listening to client requests.

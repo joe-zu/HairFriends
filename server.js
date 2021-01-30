@@ -1,17 +1,17 @@
 // Dependencies
 // ============
-const express        = require('express');
-const path           = require('path');
-const logger         = require('morgan');
-const session        = require('express-session'); 
-const passport 			 = require("./config/passport");
-const config				 = require("./config/extra-config");
-const compression    = require('compression')
+const express = require('express');
+const path = require('path');
+// const logger         = require('morgan');
+// const session        = require('express-session'); 
+// const passport 			 = require("./config/passport");
+// const config				 = require("./config/extra-config");
+// const compression    = require('compression')
 // Express settings
 // ================
-
+const PORT = process.env.PORT || 8080;
 // instantiate our app
-const app            = express();
+const app = express();
 
 //allow sessions
 // app.use(session({ secret: 'booty Mctootie', cookie: { maxAge: 60000 }}));
@@ -22,47 +22,59 @@ app.set('views', path.join(__dirname, 'views'));
 //set up handlebars
 const exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
-    defaultLayout: 'main'
+  defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
 
-const isAuth 				 = require("./config/middleware/isAuthenticated");
-const authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
+// const isAuth 				 = require("./config/middleware/isAuthenticated");
+// const authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(authCheck);
-
-app.use(compression())
-
-require('./routes')(app);
-
-// catch 404 and forward to error handler
-app.use((req, res, next) => {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+app.get("/", function (req, res) {
+  res.render("index");
 });
 
-// error handler
-// no stacktraces leaked to user unless in development environment
-app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: (app.get('env') === 'development') ? err : {}
-  })
+// Start our server so that it can begin listening to client requests.
+app.listen(PORT, function () {
+  // Log (server-side) when our server has started
+  console.log("Server listening on: http://localhost:" + PORT);
 });
+
+
+
+// app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(authCheck);
+
+// app.use(compression())
+
+// require('./routes')(app);
+
+// // catch 404 and forward to error handler
+// app.use((req, res, next) => {
+//   const err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
+
+// // error handler
+// // no stacktraces leaked to user unless in development environment
+// app.use((err, req, res, next) => {
+//   res.status(err.status || 500);
+//   res.render('error', {
+//     message: err.message,
+//     error: (app.get('env') === 'development') ? err : {}
+//   })
+// });
 
 
 // our module get's exported as app.
-module.exports = app;
+// module.exports = app;
 

@@ -9,6 +9,8 @@ const path = require('path');
 // const compression    = require('compression')
 // Express settings
 // ================
+
+//Move this later to bin
 const PORT = process.env.PORT || 8080;
 // instantiate our app
 const app = express();
@@ -36,10 +38,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+//These app.gets will be in our controller files
 app.get("/", function (req, res) {
   res.render("index");
 });
 
+//This will be in our bin folder
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function () {
   // Log (server-side) when our server has started

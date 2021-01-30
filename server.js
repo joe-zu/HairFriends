@@ -38,10 +38,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-const routes = require("./controllers/application_controller.js");
-
-app.use(routes);
-
 //This will be in our bin folder
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function () {
@@ -58,7 +54,7 @@ app.listen(PORT, function () {
 
 // app.use(compression())
 
-// require('./routes')(app);
+require('./routes')(app);
 
 // // catch 404 and forward to error handler
 // app.use((req, res, next) => {

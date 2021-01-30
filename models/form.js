@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
                 len: [1, 1500]
               }
         },
+        publish: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
         pin: {
             type: DataTypes.BOOLEAN,
             defaultValue: false

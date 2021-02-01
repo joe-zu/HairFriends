@@ -25,6 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     //       }
     //     });
     //   };
-      return Forms;
+      return Products;
     };
     

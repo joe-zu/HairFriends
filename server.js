@@ -2,6 +2,7 @@
 // ============
 const express = require('express');
 const path = require('path');
+
 // const logger         = require('morgan');
 // const session        = require('express-session'); 
 // const passport 			 = require("./config/passport");
@@ -39,12 +40,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //This will be in our bin folder
-// Start our server so that it can begin listening to client requests.
-app.listen(PORT, function () {
-  // Log (server-side) when our server has started
-  console.log("Server listening on: http://localhost:" + PORT);
-});
 
+
+const db = require("./models");
+
+// Start our server so that it can begin listening to client requests.
+
+db.sequelize.sync().then(() => {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});
 
 
 // app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));

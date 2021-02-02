@@ -33,12 +33,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
-  }};
-//   User.associate = models => {
-//     // associations can be defined here
-//     User.hasMany(models.Trip, {
-//       onDelete: "cascade"
-//     });
-//   }
-//   return User;
+  }
+  return User;
+};
 // };

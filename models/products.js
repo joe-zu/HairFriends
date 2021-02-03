@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         productLink: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             isUrl: true         
         }
     });

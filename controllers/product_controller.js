@@ -29,8 +29,8 @@ exports.delete = (req, res) => {
 
 exports.create = (req, res) => {
     db.Products.create({
-        productName: req.params.prodName,
-        description: req.params.prodDesc
+        productName: req.body.productName,
+        description: req.body.description
         //productLink: req.params.prodLink
     })
         .then(newProd => {

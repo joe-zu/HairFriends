@@ -25,33 +25,39 @@
         </tr>
     </tbody>
     <div> --}}
-
-<h2>Add a product</h2>
-<form class="newProdForm">
-
-  <div class="form-group">
-    <label for="newProdName">Product Name:</label>
-    <input type="text" id="newProdName" name="productName">
-  </div>
-
-  <div class="form-group">
-    <label for="newProdDesc">Description:</label>
-    <input type="text" id="newProdDesc" name="description">
-  </div>
-
-  <div class="form-group">
-    <label for="newProdLink">Link to product:</label>
-    <input type="text" id="newProdLink" name="productLink">
-  </div>
-
-  <button type="submit">Add Product</button>
-</form>
-
-<div class="row">
-  {{#each product}}
-      {{> products/product-block}}
-  {{/each}}
-</div>
+        <div class="row">
+            <div class="col-6">
+                <h2>Add a product</h2>
+            </div>
+            <div class="col-6">
+                <a class="btn btn-light" href="/product/products">All products</a>
+            </div>
+            </div>
+        </div>
 
 
+        <form class="newProdForm">
 
+            <div class="form-group">
+                <label for="newProdName">Product Name:</label>
+                <input type="text" id="newProdName" name="productName">
+            </div>
+
+            <div class="form-group">
+                <label for="newProdDesc">Description:</label>
+                <input type="text" id="newProdDesc" name="description">
+            </div>
+
+            <div class="form-group">
+                <label for="newProdLink">Link to product:</label>
+                <input type="text" id="newProdLink" name="productLink">
+            </div>
+
+            <button type="submit">Add Product</button>
+        </form>
+
+        <div class="row">
+            {{#each product}}
+            {{> products/product-block}}
+            {{/each}}
+        </div>

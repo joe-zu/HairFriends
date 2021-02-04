@@ -20,7 +20,7 @@ exports.products = (req, res) => {
 exports.delete = (req, res) => {
     db.Products.destroy({
         where: {
-            id: req.params.id
+            id: req.body.id
         }
     }).then(dbDelete => {
         res.json(dbDelete);
@@ -29,9 +29,9 @@ exports.delete = (req, res) => {
 
 exports.create = (req, res) => {
     db.Products.create({
-        productName: req.params.prodName,
-        description: req.params.prodDesc
-        //productLink: req.params.prodLink
+        productName: req.body.productName,
+        description: req.body.description,
+        productLink: req.body.productLink
     })
         .then(newProd => {
             res.json(newProd);

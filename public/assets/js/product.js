@@ -3,7 +3,7 @@ $(function() {
     $(".delete-prod").on("click", function(event) {
       var id = $(this).data("id");
       // Send the DELETE request.
-      $.ajax("/product/delete" + id, {
+      $.ajax("/product/products" + id, {
         type: "DELETE"
       }).then(
         function() {
@@ -25,7 +25,7 @@ $(function() {
       };
     
       // Send the POST request.
-      $.ajax("/create/:prodName/:prodDesc", {
+      $.ajax("/product", {
         type: "POST",
         data: newProd
       }).then(

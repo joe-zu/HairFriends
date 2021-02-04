@@ -24,3 +24,19 @@ $(".create-form").on("submit", (event) => {
     );
     console.dir(newForm)
   });
+
+  $(document).ready(() => {
+    $('#formFilterSelect').change(() => {
+        const filterSel = $('#formFilterSelect').val()
+        $.ajax("/forms/auth", {
+            type: "GET",
+            data: filterSel
+          }).then(() => {
+            console.log("get request: " + filterSel);
+
+            //   location.reload();
+            }
+          );
+
+    });
+});

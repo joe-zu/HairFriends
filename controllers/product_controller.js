@@ -2,8 +2,9 @@ const db = require('../models');
 
 exports.index = (req, res) => {
     db.Products.findAll({}).then(dbProducts => {
-        res.render(dbProducts)
+        res.json(dbProducts)
     })
+    // res.render('testing');
 }
 
 exports.delete = (req, res) => {
@@ -12,16 +13,32 @@ exports.delete = (req, res) => {
             id: req.params.id
         }
     }).then(dbDelete => {
-        res.render(dbDelete); 
+        res.json(dbDelete);
     })
 }
 
 exports.create = (req, res) => {
     db.Products.create({
-        where: {
-            id: req.body.id
-        }
-    }).then(dbCreate => {
-        res.json(dbCreate);
+        productName: req.params.prodName,
+        description: req.params.prodDesc
+        //productLink: req.params.prodLink
     })
+        .then(newProd => {
+            res.json(newProd);
+        })
+}
+
+exports.update = (req, res) => {
+    db.Products.update({
+        productName: req.params.prodName,
+        description: req.params.prodDesc
+    },
+        {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(newProd => {
+            res.json(newProd);
+        })
 }

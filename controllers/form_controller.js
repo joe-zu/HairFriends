@@ -1,24 +1,50 @@
 const db = require('../models');
 
-exports.index = (req, res) => {
 
+//GET REQUESTS
+
+//all
+exports.allForms= (req, res) => {
     db.Forms.findAll({
     }).then(dbForms => {
-        res.json(dbForms)
+        //res.render('all-forms', dbForms)
+        res.json(dbForms);
     })
 }
+
+//published
+exports.allPub = (req, res) => {
+    db.Forms.findAll({
+        where: {
+            publish: true
+        }
+    }).then(dbForms => {
+        var hbsObject = {
+            comment: dbForms
+          };
+          //console.dir(hbsObject.comment[0].dataValues);
+          //res.json(hbsObject);
+        res.render('forms', hbsObject);
+    })
+}
+
+//POST REQUESTS
 exports.createForm = (req, res) => {
     db.Forms.create({
-        firstName: req.params.firstname,
-        lastName: req.params.lastname,
-        body: req.params.body,
-        CategoryId: req.params.id
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        body: req.body.formBody,
+        publish: true
     }
     ).then(dbPost => {
         res.json(dbPost);
         console.log(dbPost);
     });
 }
+
+//PUT REQUESTS
+
+//publish
 exports.publish = (req, res) => {
     db.Forms.update({
         publish: true
@@ -41,6 +67,8 @@ exports.unpublish = (req, res) => {
         res.json(dbForms)
     });
 }
+
+//pin
 exports.pin = (req, res) => {
     db.Forms.update({
         pin: true
@@ -63,6 +91,8 @@ exports.unpin = (req, res) => {
         res.json(dbForms)
     });
 }
+
+//DELETE REQUESTS
 exports.delete = (req, res) => {
     db.Forms.destroy({
         where: {

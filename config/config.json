@@ -3,7 +3,11 @@
       "username": "root",
 
 
-      "password": "Nelsoncat33",
+
+      "password": "",
+
+
+      "password": "",
 
       "database": "hairfriends_db",
       "host": "127.0.0.1",

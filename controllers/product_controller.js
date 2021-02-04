@@ -32,6 +32,7 @@ exports.create = (req, res) => {
         productName: req.body.productName,
         description: req.body.description,
         productLink: req.body.productLink
+        //productLink: req.params.prodLink
     })
         .then(newProd => {
             res.json(newProd);

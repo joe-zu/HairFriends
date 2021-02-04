@@ -41,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //This will be in our bin folder
 
+require('./routes')(app);
 
 const db = require("./models");
 
@@ -60,7 +61,7 @@ db.sequelize.sync().then(() => {
 
 // app.use(compression())
 
-require('./routes')(app);
+
 
 // // catch 404 and forward to error handler
 // app.use((req, res, next) => {

@@ -32,15 +32,6 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: false
         }
     });
-    Forms.associate = (models) => {
-        // We're saying that a Post should belong to an Author
-        // A Post can't be created without an Author due to the foreign key constraint
-        Forms.belongsTo(models.Categories, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-      };
     
       return Forms;
     };

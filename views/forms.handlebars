@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <h1>Hair Friends 2 Community</h1>
+    </div>
+    <div class="row">
+        {{#each comment}}
+        {{#if dataValues.pin}}
+        {{>forms/form-card}}
+        {{/if}}
+        {{/each}}
+    </div>
+    <div class="row">
+        <h4>comment here (form)</h4>
+    </div>
+    <div class="row">
+        {{!-- FORM POST REQ --}}
+        <form class="create-form" action="">
+            <div class="row">
+                <div class="col">
+                    <input id="formFirstName" type="text" class="form-control" placeholder="First name" autocomplete="given-name">
+                </div>
+                <div class="col">
+                    <input id="formLastName" type="text" class="form-control" placeholder="Last name" autocomplete="family-name">
+                    <small id="lastNameHelp" class="form-text text-muted">Or last initial.</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="formBody">Leave a comment...</label>
+                <textarea class="form-control" id="formBody" rows="3"></textarea>
+                <small id="bodyHelp" class="form-text text-muted">Max 1500 characters.</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="row">
+        {{#each comment}}
+        {{#unless dataValues.pin}}
+        {{>forms/form-card}}
+        {{/unless}}
+        {{/each}}
+    </div>
+</div>

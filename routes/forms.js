@@ -4,7 +4,10 @@ var router  = express.Router();
 var form_controller = require('../controllers/form_controller');
 
 //gets all NEEDS AUTH
-router.get('/api/all', form_controller.allForms);
+router.get('/auth', form_controller.authAll);
+// router.get('/auth?Pinned', form_controller.authAllPin);
+// router.get('/auth?Published', form_controller.authAllPub);
+// router.get('/auth?Unpublished', form_controller.authAllUnpub);
 
 //gets all published
 router.get('/', form_controller.allPub);

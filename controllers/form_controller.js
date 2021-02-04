@@ -3,16 +3,111 @@ const db = require('../models');
 
 //GET REQUESTS
 
-//all
-exports.allForms= (req, res) => {
-    db.Forms.findAll({
-    }).then(dbForms => {
-        //res.render('all-forms', dbForms)
-        res.json(dbForms);
-    })
-}
+// AUTH GETS
 
-//published
+//ALL
+exports.authAll= (req, res) => {
+    console.log("Filter selection: " , req._parsedUrl.query);
+
+    switch (req._parsedUrl.query) {
+        case 'Pinned':
+            db.Forms.findAll({
+                where: {
+                    pin: true
+                }
+            }).then(dbForms => {
+                var hbsObject = {
+                    comment: dbForms
+                };
+                console.dir(hbsObject)
+                res.render('auth-forms', hbsObject);
+            });
+            break;
+        case 'Published':
+            db.Forms.findAll({
+                where: {
+                    publish: true
+                }
+            }).then(dbForms => {
+                var hbsObject = {
+                    comment: dbForms
+                };
+                console.dir(hbsObject)
+                res.render('auth-forms', hbsObject);
+            });
+            break;
+        case 'Unpublished':
+            db.Forms.findAll({
+                where: {
+                    publish: false
+                }
+            }).then(dbForms => {
+                var hbsObject = {
+                    comment: dbForms
+                };
+                console.dir(hbsObject)
+                res.render('auth-forms', hbsObject);
+            });
+            break;
+        default:    
+            db.Forms.findAll({
+            }).then(dbForms => {
+                var hbsObject = {
+                    comment: dbForms
+                };
+                console.dir(hbsObject)
+                res.render('auth-forms', hbsObject);
+                //res.json(dbForms);
+            });
+    }
+
+}
+//ALL PINNED
+// exports.authAllPin = (req, res) => {
+//     db.Forms.findAll({
+//         where: {
+//             pin: true
+//         }
+//     }).then(dbForms => {
+//         var hbsObject = {
+//             comment: dbForms
+//           };
+//           res.render('auth-forms', hbsObject);
+//     });
+// }
+//ALL PUBLISHED
+// exports.authAllPub = (req, res) => {
+//     db.Forms.findAll({
+//         where: {
+//             publish: true
+//         }
+//     }).then(dbForms => {
+//         var hbsObject = {
+//             comment: dbForms
+//           };
+//           res.render('auth-forms', hbsObject);
+//     });
+// }
+//ALL UNPUBLISHED
+// exports.authAllUnpub = (req, res) => {
+//     db.Forms.findAll({
+//         where: {
+//             publish: false
+//         }
+//     }).then(dbForms => {
+//         var hbsObject = {
+//             comment: dbForms
+//           };
+//           res.render('auth-forms', hbsObject);
+//     });
+// }
+
+
+
+
+
+
+//FORM GETS (UNAUTH)
 exports.allPub = (req, res) => {
     db.Forms.findAll({
         where: {
@@ -25,7 +120,7 @@ exports.allPub = (req, res) => {
           //console.dir(hbsObject.comment[0].dataValues);
           //res.json(hbsObject);
         res.render('forms', hbsObject);
-    })
+    });
 }
 
 //POST REQUESTS

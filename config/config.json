@@ -1,7 +1,10 @@
 {
     "development": {
       "username": "root",
-      "password": "helloWorld",
+
+
+      "password": "Nelsoncat33",
+
       "database": "hairfriends_db",
       "host": "127.0.0.1",
       "port": 3306,

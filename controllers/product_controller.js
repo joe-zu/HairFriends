@@ -1,10 +1,20 @@
 const db = require('../models');
 
 exports.index = (req, res) => {
+    // db.Products.findAll({}).then(dbProducts => {
+    //     res.json(dbProducts)
+    // })
+    res.render('products')
+}
+
+exports.products = (req, res) => {
     db.Products.findAll({}).then(dbProducts => {
-        res.json(dbProducts)
+        const hbsObj = {
+            product: dbProducts
+        }
+        // console.log(hbsObj)
+        res.render('products', hbsObj)
     })
-    // res.render('testing');
 }
 
 exports.delete = (req, res) => {

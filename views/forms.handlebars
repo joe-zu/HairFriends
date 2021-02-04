@@ -43,18 +43,10 @@
 </div>
 <!-- //page details -->
 
-<div class="row">
-    {{#each comment}}
-    {{#if dataValues.pin}}
-    {{>forms/form-card}}
-    {{/if}}
-    {{/each}}
-</div>
-
 <!-- contact -->
 <section class="contact py-sm-5 py-4">
     <div class="container py-md-3">
-        <h2 class="heading text-capitalize text-center mb-lg-5 mb-sm-4 mb-3"> Contact Us</h2>
+        <h2 class="heading text-capitalize text-center mb-lg-5 mb-sm-4 mb-3"> Community Blog</h2>
         <div class="contact-form">
             <form class="create-form" action="" method="post">
                 <div class="row main-w3layouts-sectns">
@@ -65,12 +57,11 @@
                     <div class="col-lg-3 col-md-6 w3-btm-spc form-text2">
                         <input id="formLastName" type="text" class="form-control" placeholder="Last name"
                             autocomplete="family-name">
-                        <small id="lastNameHelp" class="form-text text-muted">Or last initial.</small>
                     </div>
                 </div>
                 <div class="main-w3layouts-sectns ">
                     <div class="w3-btm-spc form-text2 p-0">
-                        <label for="formBody">Leave a comment...</label>
+                        <label for="formBody">Give us a shout out! Tell us why you love Hair Friends 2...</label>
                         <textarea class="form-control" id="formBody" rows="3"></textarea>
                         <small id="bodyHelp" class="form-text text-muted">Max 1500 characters.</small>
                     </div>

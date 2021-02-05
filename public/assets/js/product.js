@@ -2,8 +2,9 @@ $(function() {
     //Delete
     $(".delete-prod").on("click", function(event) {
       var id = $(this).data("id");
+  
       // Send the DELETE request.
-      $.ajax("/product/products" + id, {
+      $.ajax("/product/" + id, {
         type: "DELETE"
       }).then(
         function() {

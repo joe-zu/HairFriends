@@ -1,13 +1,6 @@
 const db = require('../models');
 
 exports.index = (req, res) => {
-    // db.Products.findAll({}).then(dbProducts => {
-    //     res.json(dbProducts)
-    // })
-    res.render('products')
-}
-
-exports.products = (req, res) => {
     db.Products.findAll({}).then(dbProducts => {
         const hbsObj = {
             product: dbProducts
@@ -17,15 +10,15 @@ exports.products = (req, res) => {
     })
 }
 
-exports.delete = (req, res) => {
-    db.Products.destroy({
-        where: {
-            id: req.body.id
-        }
-    }).then(dbDelete => {
-        res.json(dbDelete);
-    })
-}
+// exports.products = (req, res) => {
+//     db.Products.findAll({}).then(dbProducts => {
+//         const hbsObj = {
+//             product: dbProducts
+//         }
+//         // console.log(hbsObj)
+//         res.render('products', hbsObj)
+//     })
+// }
 
 exports.create = (req, res) => {
     db.Products.create({
@@ -39,14 +32,25 @@ exports.create = (req, res) => {
         })
 }
 
+exports.delete = (req, res) => {
+    db.Products.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(dbDelete => {
+        res.json(dbDelete)
+    })
+}
+
 exports.update = (req, res) => {
     db.Products.update({
-        productName: req.params.prodName,
-        description: req.params.prodDesc
+        productName: req.body.productName,
+        description: req.body.description,
+        productLink: req.body.productLink
     },
         {
             where: {
-                id: req.params.id
+                id: req.body.id
             }
         })
         .then(newProd => {

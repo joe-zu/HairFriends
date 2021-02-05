@@ -1,8 +1,19 @@
-<div class="col-6">
+{{!-- <div class="col-6">
     {{dataValues.id}}
     {{dataValues.productName}}
     {{dataValues.description}}
     {{dataValues.productLink}}
 
     <button class="delete-prod" data-id="{{dataValues.id}}">DELETE!</button>
+</div> --}}
+
+<div class="col-lg">
+    <div class="row testi-cgrid border-right-grid border-bottom">
+        <div class="col-sm-8">
+            <h6 class="b-w3ltxt mt-3">{{dataValues.productName}}</h6>
+            <p class="">{{dataValues.description}}</p>
+            <a href="{{dataValues.productLink}}" target="_blank">Visit {{dataValues.productLink}}</a>
+            <button class="delete-prod btn" data-id="{{dataValues.id}}">DELETE!</button>
+        </div>
+    </div>
 </div>

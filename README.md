@@ -2,15 +2,13 @@
 
 ### Description
 
-  
+This repository contains the resources for the official Hair Friends 2 website.  
 
-Link to deployed application here: [Hair Friends 2 Official Site]()
+Link to deployed Heroku application here: [Hair Friends 2 Official Site]()
 
 ### Usage
 
-To use this application, simply input the appropriate values into the input fields and submit this form data with the "submit info" button.  Then, click the "view PDFs" button to open a separate webpage with the generated PDFs and clicking the "download PDf" button will download the selected PDF 
-
-
+To use the deployed website, simply navigate to the URL provided above and explore the site.  To run this application locally, copy this GitHub repository and install the required packages via NPM.  Then, in your local MySQL database create the database located in the schema.db file.  After this setup is complete, run the application with node server.js, and you should find the application working on localhost:8080.  
 
 ### Credits
 

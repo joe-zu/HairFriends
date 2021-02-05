@@ -10,16 +10,6 @@ exports.index = (req, res) => {
     })
 }
 
-// exports.products = (req, res) => {
-//     db.Products.findAll({}).then(dbProducts => {
-//         const hbsObj = {
-//             product: dbProducts
-//         }
-//         // console.log(hbsObj)
-//         res.render('products', hbsObj)
-//     })
-// }
-
 exports.create = (req, res) => {
     db.Products.create({
         productName: req.body.productName,
@@ -40,20 +30,4 @@ exports.delete = (req, res) => {
     }).then(dbDelete => {
         res.json(dbDelete)
     })
-}
-
-exports.update = (req, res) => {
-    db.Products.update({
-        productName: req.body.productName,
-        description: req.body.description,
-        productLink: req.body.productLink
-    },
-        {
-            where: {
-                id: req.body.id
-            }
-        })
-        .then(newProd => {
-            res.json(newProd);
-        })
 }

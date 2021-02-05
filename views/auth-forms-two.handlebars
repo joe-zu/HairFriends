@@ -44,33 +44,32 @@
         </div>
     </div>
     <!-- //page details -->
-<div class="container">
-    <div class="row">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <label class="input-group-text" for="formFilterSelect">Filter</label>
-            </div>
-            <select class="custom-select" id="formFilterSelect">
-                <option selected>Select...</option>
-                <option value="All">All</option>
-                <option value="Pinned">Pinned</option>
-                <option value="Published">Published</option>
-                <option value="Unpublished">Unpublished</option>
-            </select>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="formFilterSelect">Filter</label>
         </div>
+        <select class="custom-select" id="formFilterSelect">
+            <option selected>Select...</option>
+            <option value="">All</option>
+            <option value="Pinned">Pinned</option>
+            <option value="Published">Published</option>
+            <option value="Unpublished">Unpublished</option>
+        </select>
     </div>
 
 
-        <h4>auth-forms</h4>
+    <h4>auth-forms-two</h4>
+
 
     <div class="row">
         {{#each comment}}
-            {{>forms/auth-form-card}} 
+            {{>forms/form-card}} 
         {{/each}}
     </div>
 
-    
-</div>
+   
+
     {{!-- <div class="row">
         {{#each comment}}
         {{#unless dataValues.pin}}
@@ -90,7 +89,7 @@
     <footer class="py-sm-5 py-4">
         <div class="container py-md-3">
             <div class="footer-logo text-center">
-                <a class="navbar-brand" href="/"><span class="fa fa-scissors"></span>Hair Friends 2</a>
+                <a class="navbar-brand" href="index.html"><span class="fa fa-scissors"></span>Hair Friends 2</a>
             </div>
             <div class="row my-4 footer-middle">
                 <div class="col-md-5 text-md-right address">

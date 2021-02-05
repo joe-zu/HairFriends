@@ -16,11 +16,14 @@ exports.authAll= (req, res) => {
                     pin: true
                 }
             }).then(dbForms => {
-                var hbsObject = {
+                let hbsObjectPin = {
                     comment: dbForms
                 };
-                console.dir(hbsObject)
-                res.render('auth-forms', hbsObject);
+                // console.log("this is before hbsObjectPin",)
+                // console.dir(hbsObjectPin)
+                // dbForms.map(form=>console.log(form.firstName, form.lastName))
+                // res.render('auth-forms-two', hbsObjectPin);
+                res.render('auth-forms', hbsObjectPin);
             });
             break;
         case 'Published':
@@ -29,11 +32,13 @@ exports.authAll= (req, res) => {
                     publish: true
                 }
             }).then(dbForms => {
-                var hbsObject = {
+                var hbsObjectPub = {
                     comment: dbForms
                 };
-                console.dir(hbsObject)
-                res.render('auth-forms', hbsObject);
+                // console.log(res)
+                // console.dir(hbsObjectPub)
+                // dbForms.map(form=>console.log(form.firstName, form.lastName))
+                res.render('auth-forms', hbsObjectPub);
             });
             break;
         case 'Unpublished':
@@ -42,20 +47,25 @@ exports.authAll= (req, res) => {
                     publish: false
                 }
             }).then(dbForms => {
-                var hbsObject = {
+                var hbsObjectUnpub = {
                     comment: dbForms
                 };
-                console.dir(hbsObject)
-                res.render('auth-forms', hbsObject);
+                // console.log("this is before Unpublished",)
+                // console.dir(hbsObjectUnpub)
+                // dbForms.map(form=>console.log(form.firstName, form.lastName))
+                res.render('auth-forms', hbsObjectUnpub);
             });
             break;
         default:    
+            console.log("default")
             db.Forms.findAll({
             }).then(dbForms => {
                 var hbsObject = {
                     comment: dbForms
                 };
-                console.dir(hbsObject)
+                // console.log("this is before default all",)
+                // console.dir("default:", hbsObject)
+                // dbForms.map(form=>console.log(form.firstName, form.lastName))
                 res.render('auth-forms', hbsObject);
                 //res.json(dbForms);
             });

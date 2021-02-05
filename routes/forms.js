@@ -20,13 +20,13 @@ router.post('/', form_controller.createForm)
 
 
 //changes publish boolean
-router.put('/publish/:id', form_controller.publish);
-router.put('/unpublish/:id', form_controller.unpublish);
+router.put('/auth/publish/:id', form_controller.publish);
+router.put('/auth/unpublish/:id', form_controller.unpublish);
 //changes pin boolean
-router.put('/pin/:id', form_controller.pin);
-router.put('/unpin/:id', form_controller.unpin);
+router.put('/auth/pin/:id', form_controller.pin);
+router.put('/auth/unpin/:id', form_controller.unpin);
 
 //deletes form
-router.delete('/delete/:id', form_controller.delete);
+router.delete('/auth/delete/:id', form_controller.delete);
 
 module.exports = router;

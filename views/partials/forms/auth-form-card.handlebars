@@ -1,6 +1,19 @@
-<div class="col-3">
-    {{dataValues.firstName}}
-    {{dataValues.lastName}}
-    {{dataValues.body}}
-    {{dataValues.createdAt}}
+
+
+<div class="card text-center col-3" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{dataValues.id}} {{dataValues.firstName}} {{dataValues.lastName}}</h5>
+    <p class="card-text">{{dataValues.body}}</p>
+    <p class="card-text"><small>{{dataValues.createdAt}}</small></p>
+
+    {{#unless dataValues.publish}}<button data-id="{{dataValues.id}}" type="button" class="btn btn-success btn-sm btnPublish">Publish</button>{{/unless}}
+
+    {{#if dataValues.publish}}<button data-id="{{dataValues.id}}" type="button" class="btn btn-outline-success btn-sm btnUnpublish">Unpublish</button>{{/if}}
+
+    {{#unless dataValues.pin}}<button data-id="{{dataValues.id}}" type="button" class="btn btn-primary btn-sm btnPin">Pin</button>{{/unless}}
+
+    {{#if dataValues.pin}}<button data-id="{{dataValues.id}}" type="button" class="btn btn-outline-primary btn-sm btnUnpin">Un-pin</button>{{/if}}
+    
+    <button data-id="{{dataValues.id}}" type="button" class="btn btn-link btn-sm btnDelete">Delete</button>
+  </div>
 </div>

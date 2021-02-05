@@ -2,7 +2,7 @@ $(function() {
     //Delete
     $(".delete-prod").on("click", function(event) {
       var id = $(this).data("id");
-  
+      console.log(id)
       // Send the DELETE request.
       $.ajax("/product/" + id, {
         type: "DELETE"

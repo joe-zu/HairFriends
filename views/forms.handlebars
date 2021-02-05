@@ -11,7 +11,7 @@
             <ul class="menu mt-lg-4 ml-auto">
                 <li class=""><a href="/">Home</a></li>
                 <li class=""><a href="/products">Products</a></li>
-                <li class="active mr-2"><a href="/forms">Contact</a></li>
+                <li class="active mr-2"><a href="/forms">Community</a></li>
                 <li class=""><span><span class="fa fa-phone"></span> +1 760 677 2080</span></li>
             </ul>
         </nav>
@@ -74,16 +74,16 @@
 <!-- //contact -->
 
 <section class="testi py-5" id="testi">
-	<div class="container pb-xl-5 py-lg-3">
-		<h3 class="text-center heading mb-5">What our customers say</h3>
-		<div>
+    <div class="container pb-xl-5 py-lg-3">
+        <h3 class="text-center heading mb-5">What our customers say</h3>
+        <div>
             {{#each comment}}
             {{#unless dataValues.pin}}
             {{>forms/form-card}}
             {{/unless}}
             {{/each}}
         </div>
-	</div>
+    </div>
 </section>
 
 <!-- footer -->

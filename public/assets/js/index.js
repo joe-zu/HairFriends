@@ -54,23 +54,21 @@ $(document).ready(() => {
     });
 });
 
-$(".btnPublish").on("click", (event) => {
+$(".btnPublish").on("click", function(event) {
     var id = $(this).data("id");
-    console.log($(this).attr())
-    // Send the DELETE request.
-    // $.ajax("/forms/auth/publish/" + id, {
-    //   type: "PUT"
-    // }).then(() => {
-    //     console.log("Published comment", id);
-    //     // Reload the page to get the updated list
-    //     location.reload();
-    //   }
-    // );
+
+    $.ajax("/forms/auth/publish/" + id, {
+      type: "PUT"
+    }).then(() => {
+        console.log("Published comment", id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
 });
-$(".btnUnpublish").on("click", (event) => {
+$(".btnUnpublish").on("click", function(event) {
     const id = $(this).data("id");
 
-    // Send the DELETE request.
     $.ajax("/forms/auth/unpublish/" + id, {
       type: "PUT"
     }).then(() => {
@@ -80,10 +78,9 @@ $(".btnUnpublish").on("click", (event) => {
       }
     );
 });
-$(".btnPin").on("click", (event) => {
+$(".btnPin").on("click", function(event) {
     var id = $(this).data("id");
 
-    // Send the DELETE request.
     $.ajax("/forms/auth/pin/" + id, {
       type: "PUT"
     }).then(() => {
@@ -93,10 +90,9 @@ $(".btnPin").on("click", (event) => {
       }
     );
 });
-$(".btnUnpin").on("click", (event) => {
+$(".btnUnpin").on("click", function(event) {
     var id = $(this).data("id");
 
-    // Send the DELETE request.
     $.ajax("/forms/auth/unpin/" + id, {
       type: "PUT"
     }).then(() => {
@@ -108,17 +104,17 @@ $(".btnUnpin").on("click", (event) => {
 });
 
 
-// $(".delete-cat").on("click", function(event) {
-//     var id = $(this).data("id");
+$(".btnDelete").on("click", function(event) {
+    var id = $(this).data("id");
 
-//     // Send the DELETE request.
-//     $.ajax("/api/cats/" + id, {
-//       type: "DELETE"
-//     }).then(
-//       function() {
-//         console.log("deleted cat", id);
-//         // Reload the page to get the updated list
-//         location.reload();
-//       }
-//     );
-// });
+    // Send the DELETE request.
+    $.ajax("/forms/auth/delete/" + id, {
+      type: "DELETE"
+    }).then(
+      function() {
+        console.log("deleted comment", id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+});

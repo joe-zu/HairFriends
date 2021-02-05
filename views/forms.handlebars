@@ -72,25 +72,35 @@
     </div>
 </section>
 <!-- //contact -->
-
-<div class="card">
+<section class="testi py-5" id="testi">
+	<div class="container pb-xl-5 py-lg-3">
+		<h3 class="text-center heading mb-5">What our customers say</h3>
+		<div>
+            {{#each comment}}
+            {{#unless dataValues.pin}}
+            {{>forms/form-card}}
+            {{/unless}}
+            {{/each}}
+        </div>
+	</div>
+</section>
+{{!-- <div class="card">
     <div class="card-header">
         Quote
     </div>
     <div class="card-body">
-        <blockquote class="blockquote mb-0">
-            <p> {{#each comment}}
-                {{#unless dataValues.pin}}
-                {{>forms/form-card}}
-                {{/unless}}
-                {{/each}}</p>
-            {{!-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> --}}
-        </blockquote>
+        <p>
+            {{#each comment}}
+            {{#unless dataValues.pin}}
+            {{>forms/form-card}}
+            {{/unless}}
+            {{/each}}
+        </p>
     </div>
 </div>
 <div class="row">
 
-</div>
+</div> --}}
 
 <!-- footer -->
 <footer class="py-sm-5 py-4">

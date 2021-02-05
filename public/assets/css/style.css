@@ -382,7 +382,7 @@ li > a:only-child:after { content: ''; }
 }
 
 .banner-top {
-    background: url(../images/banner6.jpg) no-repeat center;
+    background: url(../images/background.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;

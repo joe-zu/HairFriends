@@ -4,7 +4,7 @@
 
 This repository contains the resources for the official Hair Friends 2 website.  
 
-Link to deployed Heroku application here: [Hair Friends 2 Official Site]()
+Link to deployed Heroku application here: [Hair Friends 2 Official Site](https://infinite-castle-54519.herokuapp.com/)
 
 ### Usage
 

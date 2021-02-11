@@ -2,7 +2,7 @@
 
 ### Demo
 
-
+![Hair Friends 2](https://user-images.githubusercontent.com/71421032/107604692-b8614f80-6be5-11eb-80b9-a9c0f1157819.gif)
 
 ### Description
 

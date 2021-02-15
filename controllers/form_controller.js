@@ -72,49 +72,6 @@ exports.authAll= (req, res) => {
     }
 
 }
-//ALL PINNED
-// exports.authAllPin = (req, res) => {
-//     db.Forms.findAll({
-//         where: {
-//             pin: true
-//         }
-//     }).then(dbForms => {
-//         var hbsObject = {
-//             comment: dbForms
-//           };
-//           res.render('auth-forms', hbsObject);
-//     });
-// }
-//ALL PUBLISHED
-// exports.authAllPub = (req, res) => {
-//     db.Forms.findAll({
-//         where: {
-//             publish: true
-//         }
-//     }).then(dbForms => {
-//         var hbsObject = {
-//             comment: dbForms
-//           };
-//           res.render('auth-forms', hbsObject);
-//     });
-// }
-//ALL UNPUBLISHED
-// exports.authAllUnpub = (req, res) => {
-//     db.Forms.findAll({
-//         where: {
-//             publish: false
-//         }
-//     }).then(dbForms => {
-//         var hbsObject = {
-//             comment: dbForms
-//           };
-//           res.render('auth-forms', hbsObject);
-//     });
-// }
-
-
-
-
 
 
 //FORM GETS (UNAUTH)

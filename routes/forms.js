@@ -18,7 +18,6 @@ router.get('/', form_controller.allPub);
 //creates form
 router.post('/', form_controller.createForm)
 
-
 //changes publish boolean
 router.put('/auth/publish/:id', form_controller.publish);
 router.put('/auth/unpublish/:id', form_controller.unpublish);

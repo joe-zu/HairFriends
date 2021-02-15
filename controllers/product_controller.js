@@ -1,5 +1,6 @@
 const db = require('../models');
 
+
 exports.index = (req, res) => {
     db.Products.findAll({}).then(dbProducts => {
         const hbsObj = {
@@ -7,6 +8,16 @@ exports.index = (req, res) => {
         }
         // console.log(hbsObj)
         res.render('products', hbsObj)
+    })
+}
+
+exports.findAll = (req, res) => {
+    db.Products.findAll({}).then(dbProducts => {
+        const hbsObj = {
+            product: dbProducts
+        }
+        console.log(hbsObj)
+        res.render('auth-products', hbsObj)
     })
 }
 
@@ -31,3 +42,4 @@ exports.delete = (req, res) => {
         res.json(dbDelete)
     })
 }
+

@@ -1,4 +1,5 @@
 <body>
+
     <!-- header -->
     <header>
         <div class="container">
@@ -11,7 +12,7 @@
                 <input type="checkbox" id="drop" />
                 <ul class="menu mt-lg-4 ml-auto">
                     <li class=""><a href="/">Home</a></li>
-                    <li class=""><a href="/products">Products</a></li>
+                    <li class=""><a href="/product">Products</a></li>
                     <li class="active mr-2"><a href="/forms">Community</a></li>
                     <li class=""><span><span class="fa fa-phone"></span> +1 760 677 2080</span></li>
                 </ul>
@@ -31,33 +32,39 @@
     </div>
     <!-- //banner -->
 
-    <!-- page details -->
-    <div class="breadcrumb-agile">
-        <div class="container">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="/">Home</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">Products</li>
-            </ol>
-        </div>
-    </div>
-    <!-- //page details -->
-
-    
-
-    <section class="testi py-5" id="testi">
-        <div class="container pb-xl-5 py-lg-3">
-            <h3 class="text-center heading mb-5">Products</h3>
-            <div>
-                {{#each product}}
-                {{>products/product-card}}
-                {{/each}}
+    <section class="contact py-sm-5 py-4">
+        <div class="container py-md-3">
+            <h2 class="heading text-capitalize text-center mb-lg-5 mb-sm-4 mb-3">Add a Product</h2>
+            <div class="contact-form">
+                <form class="newProdForm" action="" method="post">
+                    <div class="row main-w3layouts-sectns">
+                        <div class="col-lg-3 col-md-6 w3-btm-spc form-text1">
+                            <label for="newProdName">Product Name:</label>
+                            <input type="text" id="newProdName" name="productName">
+                        </div>
+                        <div class="col-lg-3 col-md-6 w3-btm-spc form-text2">
+                            <label for="newProdDesc">Description:</label>
+                            <input type="text" id="newProdDesc" name="description">
+                        </div>
+                        <div class="col-lg-3 col-md-6 w3-btm-spc form-text2">
+                            <label for="newProdLink">Link to product:</label>
+                            <input type="text" id="newProdLink" name="productLink">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Product</button>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- footer -->
+    <div class="container">
+        <div class="row">
+            {{#each product}}
+            {{>products/auth-product-card}}
+            {{/each}}
+        </div>
+    </div>
+
     <footer class="py-sm-5 py-4">
         <div class="container py-md-3">
             <div class="footer-logo text-center">

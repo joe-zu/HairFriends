@@ -4,7 +4,7 @@ $(function() {
       var id = $(this).data("id");
       console.log(id)
       // Send the DELETE request.
-      $.ajax("/product/" + id, {
+      $.ajax("/product/auth/delete/" + id, {
         type: "DELETE"
       }).then(
         function() {
@@ -26,7 +26,7 @@ $(function() {
       };
     
       // Send the POST request.
-      $.ajax("/product", {
+      $.ajax("/product/auth", {
         type: "POST",
         data: newProd
       }).then(

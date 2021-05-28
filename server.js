@@ -1,8 +1,9 @@
 
 const express = require('express');
 const path = require('path');
-var session = require("express-session");
-var passport = require("./config/passport");
+const session = require("express-session");
+const passport = require("./config/passport");
+const compression = require('compression')
 
 //Move this later to bin
 const PORT = process.env.PORT || 8080;
@@ -11,6 +12,9 @@ const PORT = process.env.PORT || 8080;
 const db = require("./models");
 const app = express();
 
+
+
+app.use(compression())
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 
